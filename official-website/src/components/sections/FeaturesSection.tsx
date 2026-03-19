@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Layout, Download, Settings, MonitorPlay, Users, Sliders } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -15,42 +14,36 @@ const FeaturesSection = () => {
   const features = [
     {
       id: 'ui',
-      icon: <Layout className="w-6 h-6" />,
       title: t('features.ui.title'),
       description: t('features.ui.desc'),
       image: 'home.jpg'
     },
     {
       id: 'download',
-      icon: <Download className="w-6 h-6" />,
       title: t('features.download.title'),
       description: t('features.download.desc'),
       image: 'download_modpack.jpg'
     },
     {
       id: 'version',
-      icon: <Settings className="w-6 h-6" />,
       title: t('features.version.title'),
       description: t('features.version.desc'),
       image: 'version_management.jpg'
     },
     {
       id: 'render',
-      icon: <MonitorPlay className="w-6 h-6" />,
       title: t('features.render.title'),
       description: t('features.render.desc'),
       image: 'renderer.jpg'
     },
     {
       id: 'multiplayer',
-      icon: <Users className="w-6 h-6" />,
       title: t('features.multiplayer.title'),
       description: t('features.multiplayer.desc'),
       image: 'multiplayer.jpg'
     },
     {
       id: 'settings',
-      icon: <Sliders className="w-6 h-6" />,
       title: t('features.settings.title'),
       description: t('features.settings.desc'),
       image: 'launcher_settings.jpg'
@@ -103,9 +96,6 @@ const FeaturesSection = () => {
                     "text-left"
                   )}
                 >
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-[var(--brand)]/10 text-[var(--brand)] flex items-center justify-center shadow-inner">
-                    {feature.icon}
-                  </div>
                   <h3 className="text-2xl md:text-4xl font-bold text-[var(--text-1)] leading-tight">
                     {feature.title}
                   </h3>
