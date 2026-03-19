@@ -34,10 +34,10 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden flex flex-col items-center min-h-screen pt-16">
+    <section className="relative overflow-hidden flex flex-col items-center min-h-screen pt-16 md:pt-16">
       <div className="hero-glow" />
 
-      <div className="flex-grow flex items-center w-full">
+      <div className="flex-grow flex items-center w-full py-12 md:py-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="text-center">
             <motion.div
@@ -46,7 +46,7 @@ const HeroSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-[var(--brand)]/10 text-[var(--brand)] mb-8 border border-[var(--brand)]/20">
+              <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-[var(--brand)]/10 text-[var(--brand)] mb-6 md:mb-8 border border-[var(--brand)]/20">
                 <Zap size={14} className="mr-2" /> {t('hero.badge')}
               </span>
             </motion.div>
@@ -56,7 +56,7 @@ const HeroSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight text-[var(--text-1)]"
+              className="text-4xl md:text-7xl font-extrabold tracking-tight mb-6 md:mb-8 leading-tight text-[var(--text-1)]"
               dangerouslySetInnerHTML={{ __html: t('hero.title') }}
             />
 
@@ -65,7 +65,7 @@ const HeroSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="max-w-2xl mx-auto text-xl text-[var(--text-2)] mb-12"
+              className="max-w-2xl mx-auto text-lg md:text-xl text-[var(--text-2)] mb-8 md:mb-12"
             >
               {t('hero.description')}
             </motion.p>
@@ -77,10 +77,10 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
-              <Link to="/download" className="btn-primary flex items-center gap-2 text-lg">
+              <Link to="/download" className="btn-primary flex items-center gap-2 text-lg w-full sm:w-auto justify-center">
                 {t('common.download')} <Download size={20} />
               </Link>
-              <a href="https://www.zalithlauncher.cn/docs/projects/zl2" target="_blank" rel="noreferrer" className="px-8 py-3 rounded-full border border-[var(--divider)]/50 hover:bg-[var(--bg-alt)] transition-all flex items-center gap-2 text-lg text-[var(--text-1)]">
+              <a href="https://www.zalithlauncher.cn/docs/projects/zl2" target="_blank" rel="noreferrer" className="px-8 py-3 rounded-full border border-[var(--divider)]/50 hover:bg-[var(--bg-alt)] transition-all flex items-center gap-2 text-lg text-[var(--text-1)] w-full sm:w-auto justify-center">
                 {t('common.viewDocs')} <ArrowRight size={20} />
               </a>
             </motion.div>
@@ -88,8 +88,8 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-20 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-12 md:pb-20 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
