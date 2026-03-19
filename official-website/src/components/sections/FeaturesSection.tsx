@@ -119,6 +119,12 @@ const FeaturesSection = () => {
                       alt={feature.title}
                       className="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                       loading="lazy"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        if (lang !== 'zh' && !target.src.includes('/image/zh/')) {
+                          target.src = `/image/zh/${feature.image}`;
+                        }
+                      }}
                     />
                   </div>
                 </motion.div>
