@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Download, Smartphone, Terminal, ShieldCheck, Zap, Globe, ChevronDown, Check, AlertTriangle, ExternalLink, Info } from 'lucide-react';
-import { useLatestRelease, type Asset, type LoadingStage } from '../hooks/useLatestRelease';
+import { useLatestRelease, type Asset } from '../hooks/useLatestRelease';
 import { marked } from 'marked';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -16,7 +16,10 @@ const DownloadSection = () => {
   const [activeProject, setActiveProject] = useState<'zl1' | 'zl2'>('zl2');
   const { 
     release, 
-    loadingStage, 
+    isReleaseLoading,
+    isNotesLoading,
+    isMirrorsLoading,
+    isSyncing,
     error, 
     isChinaIP, 
     apiFailed, 
@@ -33,33 +36,62 @@ const DownloadSection = () => {
   const [parsedBody, setParsedBody] = useState('');
 
   const ReleaseSkeleton = () => (
-    <div className="glass-card p-4 sm:p-8 animate-pulse">
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+    <div className="glass-card p-4 sm:p-8 animate-pulse relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[var(--bg-alt)] to-transparent opacity-20 skeleton-shimmer" />
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-8 relative z-10">
         <div>
           <div className="h-8 bg-[var(--bg-alt)] rounded w-48 mb-2" />
           <div className="h-4 bg-[var(--bg-alt)] rounded w-32" />
         </div>
         <div className="h-8 bg-[var(--bg-alt)] rounded w-20" />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 relative z-10">
         <div className="h-12 bg-[var(--bg-alt)] rounded-xl" />
         <div className="h-12 bg-[var(--bg-alt)] rounded-xl" />
       </div>
-      <div className="space-y-3">
+      <div className="space-y-3 relative z-10">
         {[1, 2, 3].map(i => (
-          <div key={i} className="h-20 bg-[var(--bg-alt)] rounded-2xl" />
+          <div key={i} className="h-20 bg-[var(--bg-alt)] rounded-2xl flex items-center px-4 gap-4">
+             <div className="w-10 h-10 bg-[var(--bg)] rounded-xl" />
+             <div className="flex-1">
+               <div className="h-4 bg-[var(--bg)] rounded w-1/3 mb-2" />
+               <div className="h-3 bg-[var(--bg)] rounded w-1/4" />
+             </div>
+          </div>
         ))}
+      </div>
+      <div className="mt-6 flex items-center justify-center gap-2 text-[var(--text-2)] text-sm font-medium">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+        >
+          <Zap size={16} className="text-[var(--brand)]" />
+        </motion.div>
+        正在获取最新版本信息...
       </div>
     </div>
   );
 
   const NotesSkeleton = () => (
-    <div className="glass-card p-8 h-full animate-pulse bg-[var(--bg)]/40 backdrop-blur-md">
-      <div className="h-6 bg-[var(--bg-alt)] rounded w-1/2 mb-6" />
-      <div className="space-y-3">
+    <div className="glass-card p-8 h-full animate-pulse bg-[var(--bg)]/40 backdrop-blur-md relative overflow-hidden flex flex-col">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--bg-alt)] to-transparent opacity-20 skeleton-shimmer" />
+      <div className="h-6 bg-[var(--bg-alt)] rounded w-1/2 mb-6 relative z-10" />
+      <div className="space-y-4 relative z-10 flex-1">
         {[1, 2, 3, 4, 5].map(i => (
-          <div key={i} className="h-4 bg-[var(--bg-alt)] rounded" style={{ width: `${80 - i * 10}%` }} />
+          <div key={i} className="space-y-2">
+            <div className="h-4 bg-[var(--bg-alt)] rounded" style={{ width: `${80 - i * 10}%` }} />
+            <div className="h-4 bg-[var(--bg-alt)] rounded w-full" />
+          </div>
         ))}
+      </div>
+      <div className="mt-8 pt-4 border-t border-[var(--divider)]/20 flex items-center justify-center gap-2 text-[var(--text-2)] text-sm font-medium relative z-10">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+        >
+          <Zap size={16} className="text-[var(--brand)]" />
+        </motion.div>
+        正在拉取更新日志...
       </div>
     </div>
   );
@@ -72,7 +104,7 @@ const DownloadSection = () => {
 
   // Auto-detect device type
   useEffect(() => {
-    if (loadingStage !== 'ui' && dynamicDeviceTypes.length > 1) {
+    if (!isReleaseLoading && dynamicDeviceTypes.length > 1) {
       const ua = navigator.userAgent.toLowerCase();
       let detectedId = 'all';
 
@@ -100,7 +132,7 @@ const DownloadSection = () => {
         setSelectedDevice(detectedId);
       }
     }
-  }, [loadingStage, dynamicDeviceTypes]);
+  }, [isReleaseLoading, dynamicDeviceTypes]);
 
   useEffect(() => {
     const parseContent = async () => {
@@ -235,7 +267,7 @@ const DownloadSection = () => {
           </div>
         </div>
 
-        {loadingStage === 'ui' ? (
+        {isReleaseLoading && isNotesLoading ? (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-6 relative z-10">
               <ReleaseSkeleton />
@@ -255,28 +287,42 @@ const DownloadSection = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left: Release Info & Selector */}
             <div className="lg:col-span-2 space-y-6 relative z-10">
-              {apiFailed && (
-                <div className="p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-xl flex items-start gap-3 text-yellow-700 dark:text-yellow-500 text-sm">
-                  <AlertTriangle className="w-5 h-5 flex-shrink-0" />
-                  <div>
-                    <p className="font-bold">{t('download.apiFailed')}</p>
-                    <p>{t('download.apiFailedDesc')}</p>
-                  </div>
-                </div>
-              )}
+              {isReleaseLoading ? (
+                <ReleaseSkeleton />
+              ) : (
+                <>
+                  {apiFailed && (
+                    <div className="p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-xl flex items-start gap-3 text-yellow-700 dark:text-yellow-500 text-sm">
+                      <AlertTriangle className="w-5 h-5 flex-shrink-0" />
+                      <div>
+                        <p className="font-bold">{t('download.apiFailed')}</p>
+                        <p>{t('download.apiFailedDesc')}</p>
+                      </div>
+                    </div>
+                  )}
 
-              <div className="glass-card p-4 sm:p-8">
-                <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-                  <div>
-                    <h3 className="text-2xl font-bold text-[var(--brand)]">{release?.name}</h3>
-                    <p className="text-[var(--text-2)] text-sm mt-1">
-                      {t('download.publishedAt')} {release ? new Date(release.published_at).toLocaleDateString() : '-'}
-                    </p>
-                  </div>
-                  <span className="px-3 py-1 bg-[var(--brand)]/10 text-[var(--brand)] rounded-full text-sm font-bold border border-[var(--brand)]/20">
-                    {release?.tag_name}
-                  </span>
-                </div>
+                  <div className="glass-card p-4 sm:p-8">
+                    <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+                      <div>
+                        <div className="flex items-center gap-3">
+                          <h3 className="text-2xl font-bold text-[var(--brand)]">{release?.name}</h3>
+                          {isSyncing && (
+                            <span className="flex items-center gap-1 px-2 py-0.5 bg-[var(--brand)]/10 text-[var(--brand)] rounded text-xs">
+                              <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }}>
+                                <Zap size={12} />
+                              </motion.div>
+                              更新中...
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-[var(--text-2)] text-sm mt-1">
+                          {t('download.publishedAt')} {release ? new Date(release.published_at).toLocaleDateString() : '-'}
+                        </p>
+                      </div>
+                      <span className="px-3 py-1 bg-[var(--brand)]/10 text-[var(--brand)] rounded-full text-sm font-bold border border-[var(--brand)]/20">
+                        {release?.tag_name}
+                      </span>
+                    </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   {/* Device Dropdown */}
@@ -323,10 +369,24 @@ const DownloadSection = () => {
 
                   {/* Source Dropdown */}
                   <div className="relative">
-                    <label className="block text-xs font-bold text-[var(--text-2)] mb-2 uppercase tracking-wider">{t('download.source')}</label>
+                    <label className="block text-xs font-bold text-[var(--text-2)] mb-2 uppercase tracking-wider flex items-center justify-between">
+                      {t('download.source')}
+                      {isMirrorsLoading && (
+                        <span className="flex items-center gap-1 text-[var(--brand)] text-[10px] normal-case">
+                          <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }}>
+                            <Zap size={10} />
+                          </motion.div>
+                          测速中...
+                        </span>
+                      )}
+                    </label>
                     <button 
                       onClick={() => setIsSourceOpen(!isSourceOpen)}
-                      className="w-full flex items-center justify-between px-4 py-3 bg-[var(--bg)] border border-[var(--divider)]/20 rounded-xl hover:border-[var(--brand)]/50 transition-all text-[var(--text-1)]"
+                      disabled={isMirrorsLoading}
+                      className={cn(
+                        "w-full flex items-center justify-between px-4 py-3 bg-[var(--bg)] border border-[var(--divider)]/20 rounded-xl transition-all text-[var(--text-1)]",
+                        isMirrorsLoading ? "opacity-70 cursor-not-allowed" : "hover:border-[var(--brand)]/50"
+                      )}
                     >
                       <span className="flex items-center gap-3">
                         <Globe size={18} className="text-[var(--brand)]" />
@@ -379,8 +439,12 @@ const DownloadSection = () => {
                       className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-[var(--bg-alt)] border border-[var(--divider)]/20 rounded-2xl hover:border-[var(--brand)]/30 transition-all gap-4"
                     >
                       <div className="flex items-start gap-4 flex-1 w-full">
-                        <div className="w-10 h-10 bg-[var(--brand)]/10 text-[var(--brand)] rounded-xl flex items-center justify-center flex-shrink-0 mt-1 sm:mt-0">
-                          <Terminal size={20} />
+                        <div className="w-10 h-10 bg-[var(--brand)]/10 text-[var(--brand)] rounded-xl flex items-center justify-center flex-shrink-0 mt-1 sm:mt-0 overflow-hidden">
+                          {activeProject === 'zl2' ? (
+                            <img src="/zl_icon.webp" alt="ZL2" className="w-6 h-6 object-contain" />
+                          ) : (
+                            <Terminal size={20} />
+                          )}
                         </div>
                         <div className="min-w-0 flex-1">
                           <p className="text-sm font-bold text-[var(--text-1)] break-all sm:break-normal line-clamp-2 sm:line-clamp-1">{asset.name}</p>
@@ -408,11 +472,13 @@ const DownloadSection = () => {
                   )}
                 </div>
               </div>
+            </>
+            )}
             </div>
 
             {/* Right: Release Notes */}
             <div className="lg:col-span-1 relative z-0">
-              {loadingStage === 'release' ? (
+              {isNotesLoading ? (
                 <NotesSkeleton />
               ) : (
                 <div className="glass-card p-8 h-full bg-[var(--bg)]/40 backdrop-blur-md">

@@ -36,8 +36,6 @@ export interface DownloadSource {
   };
 }
 
-export type LoadingStage = 'ui' | 'release' | 'notes' | 'mirror';
-
 const DOWNLOAD_SOURCES: DownloadSource[] = [
   { id: 'github', name: 'GitHub 官方', description: '官方发布渠道', speed: '海外较快' },
   { id: 'mirror', name: '国内加速', description: 'fishcpy 提供', speed: '国内较快', contributor: { name: 'fishcpy', url: 'https://github.com/fishcpy' } },
@@ -49,7 +47,13 @@ const DOWNLOAD_SOURCES: DownloadSource[] = [
 export const useLatestRelease = (project: 'zl1' | 'zl2', currentLang: string) => {
   const { t } = useTranslation();
   const [release, setRelease] = useState<Release | null>(null);
-  const [loadingStage, setLoadingStage] = useState<LoadingStage>('ui');
+  
+  // Independent loading states
+  const [isReleaseLoading, setIsReleaseLoading] = useState(true);
+  const [isNotesLoading, setIsNotesLoading] = useState(true);
+  const [isMirrorsLoading, setIsMirrorsLoading] = useState(true);
+  const [isSyncing, setIsSyncing] = useState(false);
+
   const [error, setError] = useState<string | null>(null);
   const [isChinaIP, setIsChinaIP] = useState(false);
   const [apiFailed, setApiFailed] = useState(false);
@@ -67,116 +71,195 @@ export const useLatestRelease = (project: 'zl1' | 'zl2', currentLang: string) =>
     ? 'https://fcl.lemwood.icu/zalith-info/launcher_version.json'
     : 'https://fcl.lemwood.icu/zalith-info/v2/latest_version.json';
 
-  const fetchVersionJsonData = async () => {
-    try {
-      const res = await fetch(versionInfoUrl);
-      if (res.ok) {
-        const data = await res.json();
-        setVersionJsonData(data);
-      }
-    } catch (e) {
-      console.warn('Fetch version json data failed', e);
-    }
-  };
-
-  const detectIP = async () => {
-    try {
-      const cached = localStorage.getItem('isChineseIP');
-      const expire = localStorage.getItem('isChineseIPExpire');
-      if (cached && expire && Date.now() < parseInt(expire)) {
-        setIsChinaIP(cached === 'true');
-        return cached === 'true';
-      }
-
-      const res = await fetch('https://ipapi.co/json/');
-      if (res.ok) {
-        const data = await res.json();
-        const isCN = data.country === 'CN' || data.region === 'China';
-        localStorage.setItem('isChineseIP', isCN.toString());
-        localStorage.setItem('isChineseIPExpire', (Date.now() + 86400000).toString());
-        setIsChinaIP(isCN);
-        return isCN;
-      }
-    } catch (e) {
-      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      const isCN = tz.includes('Asia/Shanghai') || tz.includes('Asia/Chongqing');
-      setIsChinaIP(isCN);
-      return isCN;
-    }
-    return false;
-  };
-
-  const fetchMirrors = async () => {
-    const foxingtonUrl = project === 'zl1' ? 'https://next.foldcraftlauncher.cn/data/down/zl/1/1.4.1.0/index.json' : null;
-    const hahaUrl = `https://api.mirror.frostlynx.work/api/projects/${project === 'zl1' ? 'zl' : 'zl2'}/latest`;
-    const lemwoodUrl = `https://mirror.lemwood.icu/api/status/${project === 'zl1' ? 'zl' : 'zl2'}`;
-
-    const fetchJson = async (url: string) => {
-      try {
-        const res = await fetch(url);
-        if (res.ok) return await res.json();
-        const proxyRes = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
-        if (!proxyRes.ok) return null;
-        const proxyData = await proxyRes.json();
-        if (!proxyData || !proxyData.contents) return null;
-        return JSON.parse(proxyData.contents);
-      } catch (e) {
-        console.error('Fetch mirror data failed', e);
-        return null;
-      }
-    };
-
-    const [fox, ha, lem] = await Promise.all([
-      foxingtonUrl ? fetchJson(foxingtonUrl) : Promise.resolve(null),
-      fetchJson(hahaUrl),
-      fetchJson(lemwoodUrl)
-    ]);
-
-    setMirrorData({ foxington: fox, haha: ha, lemwood: lem });
-  };
-
   useEffect(() => {
+    let isMounted = true;
+
     const load = async () => {
-      setLoadingStage('ui');
+      setIsReleaseLoading(true);
+      setIsNotesLoading(true);
+      setIsMirrorsLoading(true);
+      setIsSyncing(false);
       setError(null);
       setApiFailed(false);
 
-      try {
-        const res = await fetch(`https://api.github.com/repos/${repo}/releases/latest`);
-        if (!res.ok) throw new Error('GitHub API failed');
-        const data = await res.json();
-        setRelease(data);
-      } catch (e) {
-        setApiFailed(true);
+      const cacheKeyPrefix = `zalith_cache_${project}_`;
+      const cachedRelease = localStorage.getItem(`${cacheKeyPrefix}release`);
+      const cachedNotes = localStorage.getItem(`${cacheKeyPrefix}notes`);
+      const cachedMirrors = localStorage.getItem(`${cacheKeyPrefix}mirrors`);
+      
+      let hasCache = false;
+
+      if (cachedRelease) {
         try {
-          const localRes = await fetch(localVersionFile);
-          const localData = await localRes.json();
-          setRelease({
-            name: `${project.toUpperCase()} ${localData.latest_version}`,
-            tag_name: `v${localData.latest_version}`,
-            published_at: localData.release_date,
-            body: localData.body || '',
-            assets: localData.assets.map((a: any) => ({
-              ...a,
-              id: Math.random(),
-              download_count: a.download_count || 0
-            }))
-          });
-        } catch (le) {
-          setError('无法获取版本信息');
-        }
+          setRelease(JSON.parse(cachedRelease));
+          setIsReleaseLoading(false);
+          hasCache = true;
+        } catch (e) { /* ignore */ }
       }
-      
-      setLoadingStage('release');
-      
-      await fetchVersionJsonData();
-      setLoadingStage('notes');
-      
-      await Promise.all([detectIP(), fetchMirrors()]);
-      setLoadingStage('mirror');
+      if (cachedNotes) {
+        try {
+          setVersionJsonData(JSON.parse(cachedNotes));
+          setIsNotesLoading(false);
+        } catch (e) { /* ignore */ }
+      }
+      if (cachedMirrors) {
+        try {
+          setMirrorData(JSON.parse(cachedMirrors));
+          setIsMirrorsLoading(false);
+        } catch (e) { /* ignore */ }
+      }
+
+      if (hasCache) {
+        setIsSyncing(true);
+      }
+
+      const fetchReleaseTask = async () => {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 3000);
+          
+          const res = await fetch(`https://api.github.com/repos/${repo}/releases/latest`, {
+            signal: controller.signal
+          });
+          clearTimeout(timeoutId);
+          
+          if (!res.ok) throw new Error('GitHub API failed');
+          const data = await res.json();
+          if (isMounted) {
+            setRelease(data);
+            localStorage.setItem(`${cacheKeyPrefix}release`, JSON.stringify(data));
+            setIsReleaseLoading(false);
+          }
+        } catch (e) {
+          if (isMounted) setApiFailed(true);
+          try {
+            const localRes = await fetch(localVersionFile);
+            const localData = await localRes.json();
+            const fallbackRelease = {
+              name: `${project.toUpperCase()} ${localData.latest_version}`,
+              tag_name: `v${localData.latest_version}`,
+              published_at: localData.release_date,
+              body: localData.body || '',
+              assets: localData.assets.map((a: any) => ({
+                ...a,
+                id: Math.random(),
+                download_count: a.download_count || 0
+              }))
+            };
+            if (isMounted) {
+              setRelease(fallbackRelease);
+              localStorage.setItem(`${cacheKeyPrefix}release`, JSON.stringify(fallbackRelease));
+              setIsReleaseLoading(false);
+            }
+          } catch (le) {
+            if (isMounted && !hasCache) {
+              setError('无法获取版本信息');
+              setIsReleaseLoading(false);
+            }
+          }
+        }
+      };
+
+      const fetchNotesTask = async () => {
+        try {
+          const res = await fetch(versionInfoUrl);
+          if (res.ok) {
+            const data = await res.json();
+            if (isMounted) {
+              setVersionJsonData(data);
+              localStorage.setItem(`${cacheKeyPrefix}notes`, JSON.stringify(data));
+              setIsNotesLoading(false);
+            }
+          } else {
+             if (isMounted && !cachedNotes) setIsNotesLoading(false);
+          }
+        } catch (e) {
+          console.warn('Fetch version json data failed', e);
+          if (isMounted && !cachedNotes) setIsNotesLoading(false);
+        }
+      };
+
+      const fetchMirrorsTask = async () => {
+        const foxingtonUrl = project === 'zl1' ? 'https://next.foldcraftlauncher.cn/data/down/zl/1/1.4.1.0/index.json' : null;
+        const hahaUrl = `https://api.mirror.frostlynx.work/api/projects/${project === 'zl1' ? 'zl' : 'zl2'}/latest`;
+        const lemwoodUrl = `https://mirror.lemwood.icu/api/status/${project === 'zl1' ? 'zl' : 'zl2'}`;
+
+        const fetchJson = async (url: string) => {
+          try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000);
+            const res = await fetch(url, { signal: controller.signal });
+            clearTimeout(timeoutId);
+            
+            if (res.ok) return await res.json();
+            
+            const proxyRes = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
+            if (!proxyRes.ok) return null;
+            const proxyData = await proxyRes.json();
+            if (!proxyData || !proxyData.contents) return null;
+            return JSON.parse(proxyData.contents);
+          } catch (e) {
+            console.error('Fetch mirror data failed', e);
+            return null;
+          }
+        };
+
+        const [fox, ha, lem] = await Promise.all([
+          foxingtonUrl ? fetchJson(foxingtonUrl) : Promise.resolve(null),
+          fetchJson(hahaUrl),
+          fetchJson(lemwoodUrl)
+        ]);
+
+        if (isMounted) {
+          const newMirrorData = { foxington: fox, haha: ha, lemwood: lem };
+          setMirrorData(newMirrorData);
+          localStorage.setItem(`${cacheKeyPrefix}mirrors`, JSON.stringify(newMirrorData));
+          setIsMirrorsLoading(false);
+        }
+      };
+
+      const detectIPTask = async () => {
+        try {
+          const cached = localStorage.getItem('isChineseIP');
+          const expire = localStorage.getItem('isChineseIPExpire');
+          if (cached && expire && Date.now() < parseInt(expire)) {
+            if (isMounted) setIsChinaIP(cached === 'true');
+            return;
+          }
+
+          const res = await fetch('https://ipapi.co/json/');
+          if (res.ok) {
+            const data = await res.json();
+            const isCN = data.country === 'CN' || data.region === 'China';
+            localStorage.setItem('isChineseIP', isCN.toString());
+            localStorage.setItem('isChineseIPExpire', (Date.now() + 86400000).toString());
+            if (isMounted) setIsChinaIP(isCN);
+            return;
+          }
+        } catch (e) {
+          const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+          const isCN = tz.includes('Asia/Shanghai') || tz.includes('Asia/Chongqing');
+          if (isMounted) setIsChinaIP(isCN);
+        }
+      };
+
+      await Promise.allSettled([
+        fetchReleaseTask(),
+        fetchNotesTask(),
+        fetchMirrorsTask(),
+        detectIPTask()
+      ]);
+
+      if (isMounted) {
+        setIsSyncing(false);
+      }
     };
 
     load();
+
+    return () => {
+      isMounted = false;
+    };
   }, [project, repo, localVersionFile, versionInfoUrl]);
 
   const localizedBody = useMemo(() => {
@@ -283,7 +366,10 @@ export const useLatestRelease = (project: 'zl1' | 'zl2', currentLang: string) =>
 
   return {
     release,
-    loadingStage,
+    isReleaseLoading,
+    isNotesLoading,
+    isMirrorsLoading,
+    isSyncing,
     error,
     isChinaIP,
     apiFailed,
