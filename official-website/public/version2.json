@@ -1,37 +1,37 @@
 {
-  "latest_version": "2.2.0",
-  "release_date": "2026-03-18T07:10:12Z",
+  "latest_version": "2.2.1",
+  "release_date": "2026-03-23T14:30:53Z",
   "assets": [
     {
-      "name": "ZalithLauncher-2.2.0-arm64-v8a.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.0/ZalithLauncher-2.2.0-arm64-v8a.apk",
-      "size": "130.1 MB",
-      "download_count": 2386
+      "name": "ZalithLauncher-2.2.1-arm64-v8a.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.1/ZalithLauncher-2.2.1-arm64-v8a.apk",
+      "size": "174.3 MB",
+      "download_count": 134
     },
     {
-      "name": "ZalithLauncher-2.2.0-armeabi-v7a.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.0/ZalithLauncher-2.2.0-armeabi-v7a.apk",
-      "size": "123.8 MB",
-      "download_count": 66
+      "name": "ZalithLauncher-2.2.1-armeabi-v7a.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.1/ZalithLauncher-2.2.1-armeabi-v7a.apk",
+      "size": "167.8 MB",
+      "download_count": 5
     },
     {
-      "name": "ZalithLauncher-2.2.0-x86.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.0/ZalithLauncher-2.2.0-x86.apk",
-      "size": "114.9 MB",
-      "download_count": 16
+      "name": "ZalithLauncher-2.2.1-x86.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.1/ZalithLauncher-2.2.1-x86.apk",
+      "size": "159.4 MB",
+      "download_count": 2
     },
     {
-      "name": "ZalithLauncher-2.2.0-x86_64.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.0/ZalithLauncher-2.2.0-x86_64.apk",
-      "size": "133.7 MB",
-      "download_count": 21
+      "name": "ZalithLauncher-2.2.1-x86_64.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.1/ZalithLauncher-2.2.1-x86_64.apk",
+      "size": "177.9 MB",
+      "download_count": 0
     },
     {
-      "name": "ZalithLauncher-2.2.0.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.0/ZalithLauncher-2.2.0.apk",
-      "size": "252.7 MB",
-      "download_count": 411
+      "name": "ZalithLauncher-2.2.1.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.1/ZalithLauncher-2.2.1.apk",
+      "size": "305.4 MB",
+      "download_count": 24
     }
   ],
-  "body": "Update:\r\n- Synchronized languages from [Weblate](https://hosted.weblate.org/projects/zalithlauncher2/)\r\n- CurseForge Modpacks:\r\n  - Added support for Quilt loader\r\n  - Support setting recommended memory allocation\r\n- Modpack Export: Support exporting modpacks in CurseForge format\r\n- Crash Page: Added log upload functionality and refactored the error UI by [leemwood](https://github.com/leemwood)\r\n- Download related:\r\n  - Support automatic installation of Cleanroom and Legacy Fabric\r\n  - Loaders are only selectable when supported by the selected version\r\n- Version Management:\r\n  - Support detecting Legacy Fabric and Babric\r\n  - Support installing mod loaders on vanilla versions\r\n- Launcher: Update the top bar title based on the current page\r\n\r\nAdjustment:\r\n- Input Proxy: Adjusted logic for Simple Mode\r\n\r\nRefactor:\r\n- Controls: Optimized key deduplication logic\r\n\r\nFix:\r\n- Download related:\r\n  - Dependencies for Forge and NeoForge were not fully downloaded during installation\r\n  - Download tasks were not terminated when errors occurred while downloading vanilla versions\r\n- Loader Update: Canceling a loader update could accidentally delete version data\r\n- Cleanroom: Runtime issues caused by icu4j library loading order\r\n- Babric: Duplicate asm libraries preventing Babric from working\r\n- LWJGL: Unable to run TouchController 1.12.2 Forge\r\n- Gamepad Mapping: Incorrect logic caused directional key mappings to overwrite each other when saving"
+  "body": "## Update:\r\n- Synchronized languages from [Weblate project](https://hosted.weblate.org/projects/zalithlauncher2/)\r\n- LWJGL: Updated to 3.3.6\r\n- Java Runtime: Added JRE 25\r\n- Updates: Changelogs now use Markdown format\r\n- CurseForge: Added Performance and Other categories\r\n- Patcher: Disabled Create mod warnings on Pojav\r\n- Settings: Added Filipino to the language list\r\n\r\n\r\n## Fix:\r\n- Options:\r\n  - Always disable the \"Narrator\" option\r\n  - Always disable the \"Touchscreen Mode\" option\r\n- Save Management: Unable to read seeds from the new save data structure"
 }
