@@ -6,31 +6,31 @@
       "name": "ZalithLauncher-2.2.3-arm64-v8a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.3/ZalithLauncher-2.2.3-arm64-v8a.apk",
       "size": "174.2 MB",
-      "download_count": 10387
+      "download_count": 15696
     },
     {
       "name": "ZalithLauncher-2.2.3-armeabi-v7a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.3/ZalithLauncher-2.2.3-armeabi-v7a.apk",
       "size": "167.6 MB",
-      "download_count": 331
+      "download_count": 545
     },
     {
       "name": "ZalithLauncher-2.2.3-x86.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.3/ZalithLauncher-2.2.3-x86.apk",
       "size": "159.3 MB",
-      "download_count": 168
+      "download_count": 275
     },
     {
       "name": "ZalithLauncher-2.2.3-x86_64.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.3/ZalithLauncher-2.2.3-x86_64.apk",
       "size": "177.8 MB",
-      "download_count": 127
+      "download_count": 197
     },
     {
       "name": "ZalithLauncher-2.2.3.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.3/ZalithLauncher-2.2.3.apk",
       "size": "304.8 MB",
-      "download_count": 1931
+      "download_count": 2839
     }
   ],
   "body": "## Updates:\r\n- Synced translations from the [Weblate project](https://hosted.weblate.org/projects/zalithlauncher2/)\r\n- Control layout: added support for copying control layouts to a new file\r\n\r\n## Changes:\r\n- Joystick: the movable range is now determined by the background shape\r\n\r\n## Fixes:\r\n- NeoForge: fixed failure to properly detect and download versions 26.1+\r\n- Update loader: fixed incorrect logic when waiting for the loader list\r\n- Resolution: now calculated using only the Surface size\r\n- LWJGL: fixed missing legacy stb API causing some mods to fail to run properly. by [ShirosakiMio](https://github.com/ShirosakiMio)"
