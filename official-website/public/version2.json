@@ -1,37 +1,37 @@
 {
-  "latest_version": "2.2.4",
-  "release_date": "2026-03-30T08:03:00Z",
+  "latest_version": "2.2.5",
+  "release_date": "2026-04-02T15:57:56Z",
   "assets": [
     {
-      "name": "ZalithLauncher-2.2.4-arm64-v8a.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.4/ZalithLauncher-2.2.4-arm64-v8a.apk",
-      "size": "174.4 MB",
-      "download_count": 14017
+      "name": "ZalithLauncher-2.2.5-arm64-v8a.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.5/ZalithLauncher-2.2.5-arm64-v8a.apk",
+      "size": "172.1 MB",
+      "download_count": 653
     },
     {
-      "name": "ZalithLauncher-2.2.4-armeabi-v7a.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.4/ZalithLauncher-2.2.4-armeabi-v7a.apk",
-      "size": "167.9 MB",
-      "download_count": 463
+      "name": "ZalithLauncher-2.2.5-armeabi-v7a.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.5/ZalithLauncher-2.2.5-armeabi-v7a.apk",
+      "size": "165.8 MB",
+      "download_count": 14
     },
     {
-      "name": "ZalithLauncher-2.2.4-x86.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.4/ZalithLauncher-2.2.4-x86.apk",
-      "size": "159.5 MB",
-      "download_count": 179
+      "name": "ZalithLauncher-2.2.5-x86.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.5/ZalithLauncher-2.2.5-x86.apk",
+      "size": "156.8 MB",
+      "download_count": 5
     },
     {
-      "name": "ZalithLauncher-2.2.4-x86_64.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.4/ZalithLauncher-2.2.4-x86_64.apk",
-      "size": "178.1 MB",
-      "download_count": 149
+      "name": "ZalithLauncher-2.2.5-x86_64.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.5/ZalithLauncher-2.2.5-x86_64.apk",
+      "size": "175.5 MB",
+      "download_count": 4
     },
     {
-      "name": "ZalithLauncher-2.2.4.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.4/ZalithLauncher-2.2.4.apk",
-      "size": "305.1 MB",
-      "download_count": 2525
+      "name": "ZalithLauncher-2.2.5.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.5/ZalithLauncher-2.2.5.apk",
+      "size": "295.2 MB",
+      "download_count": 122
     }
   ],
-  "body": "## Updates:\r\n- Synced translations from the [Weblate project](https://hosted.weblate.org/projects/zalithlauncher2/)\r\n- Added support for loading native library plugins, plugin repository: [NativeLibPlugin](https://github.com/ZalithLauncher/NativeLibPlugin/releases)\r\n- Controls: added support for using a stylus to interact with the game view\r\n\r\n## Changes:\r\n- Modpack installation: users can now cancel when entering the version name\r\n\r\n## Refactors:\r\n- Rewrote the account management screen using Hilt and MVI architecture. by [youfeng](https://github.com/youfeng11)\r\n\r\n## Fixes:\r\n- LWJGL: fixed inability to interact with Axiom mod GUI (imgui-java)\r\n- Fixed path formatting issues in the in-game file browser\r\n- Background: reduced frequent launcher background reloads\r\n- Resolution: fully fixed mouse offset issues on some devices"
+  "body": "## Updates:\r\n- Synced translations from the [Weblate project](https://hosted.weblate.org/projects/zalithlauncher2/)\r\n- Versions: added description for 26w14a (2026 April Fools version HerdCraft)\r\n\r\n## Changes:\r\n- Versions: switched to HMCL tools for version comparison\r\n\r\n## Fixes:\r\n- LWJGL: removed redundant shaderc, by [ShirosakiMio](https://github.com/ShirosakiMio)\r\n- In-game menu: prevented the floating button from moving off-screen when the screen size changes\r\n- Controls: prevented repeated events when long-pressing keyboard buttons"
 }
