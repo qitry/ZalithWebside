@@ -6,31 +6,31 @@
       "name": "ZalithLauncher-2.2.5-arm64-v8a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.5/ZalithLauncher-2.2.5-arm64-v8a.apk",
       "size": "172.1 MB",
-      "download_count": 8407
+      "download_count": 14455
     },
     {
       "name": "ZalithLauncher-2.2.5-armeabi-v7a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.5/ZalithLauncher-2.2.5-armeabi-v7a.apk",
       "size": "165.8 MB",
-      "download_count": 253
+      "download_count": 499
     },
     {
       "name": "ZalithLauncher-2.2.5-x86.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.5/ZalithLauncher-2.2.5-x86.apk",
       "size": "156.8 MB",
-      "download_count": 86
+      "download_count": 187
     },
     {
       "name": "ZalithLauncher-2.2.5-x86_64.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.5/ZalithLauncher-2.2.5-x86_64.apk",
       "size": "175.5 MB",
-      "download_count": 86
+      "download_count": 162
     },
     {
       "name": "ZalithLauncher-2.2.5.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.2.5/ZalithLauncher-2.2.5.apk",
       "size": "295.2 MB",
-      "download_count": 1629
+      "download_count": 2844
     }
   ],
   "body": "## Updates:\r\n- Synced translations from the [Weblate project](https://hosted.weblate.org/projects/zalithlauncher2/)\r\n- Versions: added description for 26w14a (2026 April Fools version HerdCraft)\r\n\r\n## Changes:\r\n- Versions: switched to HMCL tools for version comparison\r\n\r\n## Fixes:\r\n- LWJGL: removed redundant shaderc, by [ShirosakiMio](https://github.com/ShirosakiMio)\r\n- In-game menu: prevented the floating button from moving off-screen when the screen size changes\r\n- Controls: prevented repeated events when long-pressing keyboard buttons"
