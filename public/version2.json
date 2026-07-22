@@ -6,31 +6,31 @@
       "name": "ZalithLauncher-2.4.10-arm64-v8a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.4.10/ZalithLauncher-2.4.10-arm64-v8a.apk",
       "size": "155.4 MB",
-      "download_count": 10297
+      "download_count": 18357
     },
     {
       "name": "ZalithLauncher-2.4.10-armeabi-v7a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.4.10/ZalithLauncher-2.4.10-armeabi-v7a.apk",
       "size": "148.2 MB",
-      "download_count": 255
+      "download_count": 473
     },
     {
       "name": "ZalithLauncher-2.4.10-x86.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.4.10/ZalithLauncher-2.4.10-x86.apk",
       "size": "136.2 MB",
-      "download_count": 100
+      "download_count": 208
     },
     {
       "name": "ZalithLauncher-2.4.10-x86_64.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.4.10/ZalithLauncher-2.4.10-x86_64.apk",
       "size": "160.5 MB",
-      "download_count": 132
+      "download_count": 249
     },
     {
       "name": "ZalithLauncher-2.4.10.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.4.10/ZalithLauncher-2.4.10.apk",
       "size": "306.9 MB",
-      "download_count": 2174
+      "download_count": 3935
     }
   ],
   "body": "## Updates:\r\n- GP#1188: Updated Angle (by @aaaapai)\r\n- GP#1496: Terracotta multiplayer: Added support for custom EasyTier server nodes (by @MovTery)\r\n- GP#1500: Updated OpenAL-Soft (by @aaaapai)\r\n- GP#1506: Added 26.2 to the list of major versions with common mod support (by @MovTery)\r\n- GP#1545: View mod info and switch to a dedicated mod version screen in mod management (by @MovTery)\r\n- GP#1543: Added support for renderer plugins on new architectures (by @MovTery)\r\n- GP#1555: Replaced VulkanZink renderer with Kopper Zink (by @MovTery)\r\n\r\n## Refactors:\r\n- GP#1522: Refactored version list state retrieval mechanism (by @MovTery)\r\n- GP#1545: Refactored launcher localization text construction (by @MovTery)\r\n- GP#1557: Replaced fullscreen implementation (by @MovTery)\r\n\r\n## Changes:\r\n- GP#1529: Added scrollbars to game menu and control layout editor menus (by @MovTery)\r\n\r\n## Fixes:\r\n- GP#1495: Newly installed versions may crash due to missing log directory (by @MovTery)\r\n- GP#1505: No longer check Modrinth project existence on the launcher side; Modrinth handles it itself (by @MovTery)\r\n- GP#1505: Skip 404 projects when installing modpacks (by @MovTery)\r\n- GP#1507: Foreground blur effect still active when no background is set (by @MovTery)\r\n- GP#1526: Crash due to mismatched Compose color space IDs between old and new versions (by @MovTery)\r\n- GP#1533: Right sidebar obscured in Jar execution log output (by @MovTery)\r\n- GP#1538: Crash during Parcel deserialization due to obfuscation (by @MovTery)\r\n- GP#1539: Always include launcher UA when downloading files (by @MovTery)\r\n- GP#1546: Duplicate configuration of java.library.path when launching the game (by @MovTery)\r\n- GP#1571: Axiom mod failing to load imgui via imgui.library.path (by @MovTery)\r\n- GP#1573: Switched to OkHttp engine to resolve some Microsoft login issues (by @MovTery)\r\n- GP#1578: Specified openal library loading & fixed missing Platform$Architecture.is64Bit() (by @MovTery)"
