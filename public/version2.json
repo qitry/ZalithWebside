@@ -6,31 +6,31 @@
       "name": "ZalithLauncher-2.4.11-arm64-v8a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.4.11/ZalithLauncher-2.4.11-arm64-v8a.apk",
       "size": "155.4 MB",
-      "download_count": 19376
+      "download_count": 26447
     },
     {
       "name": "ZalithLauncher-2.4.11-armeabi-v7a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.4.11/ZalithLauncher-2.4.11-armeabi-v7a.apk",
       "size": "148.2 MB",
-      "download_count": 415
+      "download_count": 621
     },
     {
       "name": "ZalithLauncher-2.4.11-x86.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.4.11/ZalithLauncher-2.4.11-x86.apk",
       "size": "136.2 MB",
-      "download_count": 195
+      "download_count": 310
     },
     {
       "name": "ZalithLauncher-2.4.11-x86_64.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.4.11/ZalithLauncher-2.4.11-x86_64.apk",
       "size": "160.5 MB",
-      "download_count": 266
+      "download_count": 366
     },
     {
       "name": "ZalithLauncher-2.4.11.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.4.11/ZalithLauncher-2.4.11.apk",
       "size": "306.9 MB",
-      "download_count": 4566
+      "download_count": 6319
     }
   ],
   "body": "## Updates:\r\n- GP#1631: Refactored joystick implementation, added support for embedding joystick components into control layouts (by @MovTery)\r\n\r\n## Fixes:\r\n- GP#1590: Crash when entering a page number while total pages is 0 (by @MovTery)\r\n- GP#1645: Reverted to HTTP/1.1 to avoid silent native crashes with OkHttp engine when using Terracotta multiplayer (by @MovTery)"
