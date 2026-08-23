@@ -6,31 +6,31 @@
       "name": "ZalithLauncher-1.4.1.4-arm64-v8a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher/releases/download/141400/ZalithLauncher-1.4.1.4-arm64-v8a.apk",
       "size": "145 MB",
-      "download_count": 1109672
+      "download_count": 1116727
     },
     {
       "name": "ZalithLauncher-1.4.1.4-armeabi-v7a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher/releases/download/141400/ZalithLauncher-1.4.1.4-armeabi-v7a.apk",
       "size": "140.5 MB",
-      "download_count": 71983
+      "download_count": 72411
     },
     {
       "name": "ZalithLauncher-1.4.1.4-x86.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher/releases/download/141400/ZalithLauncher-1.4.1.4-x86.apk",
       "size": "130.4 MB",
-      "download_count": 33226
+      "download_count": 33508
     },
     {
       "name": "ZalithLauncher-1.4.1.4-x86_64.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher/releases/download/141400/ZalithLauncher-1.4.1.4-x86_64.apk",
       "size": "148.6 MB",
-      "download_count": 25991
+      "download_count": 26209
     },
     {
       "name": "ZalithLauncher-1.4.1.4.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher/releases/download/141400/ZalithLauncher-1.4.1.4.apk",
       "size": "251 MB",
-      "download_count": 210916
+      "download_count": 212636
     }
   ],
   "body": "### Fixes:\r\n- **LWJGL**:  \r\n  - Fixed severe LWJGL-OpenGL mapping errors.  \r\n  - Fixed issue where certain versions of JourneyMap prevented the game from launching.  \r\n  - Fixed inability to launch version 1.7.2.  \r\n- **Download**:  \r\n  - Fixed incorrect parsing of date strings.  "
