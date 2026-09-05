@@ -1,37 +1,37 @@
 {
-  "latest_version": "2.4.11",
-  "release_date": "2026-08-09T20:35:32Z",
+  "latest_version": "2.5",
+  "release_date": "2026-09-05T11:27:53Z",
   "assets": [
     {
-      "name": "ZalithLauncher-2.4.11-arm64-v8a.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.4.11/ZalithLauncher-2.4.11-arm64-v8a.apk",
-      "size": "155.4 MB",
-      "download_count": 144152
+      "name": "ZalithLauncher-2.5-arm64-v8a.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.5/ZalithLauncher-2.5-arm64-v8a.apk",
+      "size": "172.6 MB",
+      "download_count": 5353
     },
     {
-      "name": "ZalithLauncher-2.4.11-armeabi-v7a.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.4.11/ZalithLauncher-2.4.11-armeabi-v7a.apk",
-      "size": "148.2 MB",
-      "download_count": 5178
+      "name": "ZalithLauncher-2.5-armeabi-v7a.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.5/ZalithLauncher-2.5-armeabi-v7a.apk",
+      "size": "164.9 MB",
+      "download_count": 119
     },
     {
-      "name": "ZalithLauncher-2.4.11-x86.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.4.11/ZalithLauncher-2.4.11-x86.apk",
-      "size": "136.2 MB",
-      "download_count": 2974
+      "name": "ZalithLauncher-2.5-x86.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.5/ZalithLauncher-2.5-x86.apk",
+      "size": "154 MB",
+      "download_count": 55
     },
     {
-      "name": "ZalithLauncher-2.4.11-x86_64.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.4.11/ZalithLauncher-2.4.11-x86_64.apk",
-      "size": "160.5 MB",
-      "download_count": 3257
+      "name": "ZalithLauncher-2.5-x86_64.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.5/ZalithLauncher-2.5-x86_64.apk",
+      "size": "178.2 MB",
+      "download_count": 64
     },
     {
-      "name": "ZalithLauncher-2.4.11.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.4.11/ZalithLauncher-2.4.11.apk",
-      "size": "306.9 MB",
-      "download_count": 38622
+      "name": "ZalithLauncher-2.5.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.5/ZalithLauncher-2.5.apk",
+      "size": "337.6 MB",
+      "download_count": 1089
     }
   ],
-  "body": "## Updates:\r\n- GP#1631: Refactored joystick implementation, added support for embedding joystick components into control layouts (by @MovTery)\r\n\r\n## Fixes:\r\n- GP#1590: Crash when entering a page number while total pages is 0 (by @MovTery)\r\n- GP#1645: Reverted to HTTP/1.1 to avoid silent native crashes with OkHttp engine when using Terracotta multiplayer (by @MovTery)"
+  "body": "## Updates:\r\n- #1625: Updated authlib-injector to v1.2.8 (by @TNTyep520)\r\n- #1692, #1701: Hybrid LWJGL 3.3.3 + 3.4.1 (by @MovTery)\r\n- #1690: Display saved game playtime (by @CiiLu)\r\n- #1685: Added file manager (by @MovTery)\r\n- #1708: Updated background task titles (by @MovTery)\r\n- #1721: Added SDL3 to support launching 26.3 snapshot 4+ (by @MovTery)\r\n- #1721: Added support for [Controlify](https://modrinth.com/mod/controlify) mod (by @MovTery)\r\n- #1735: Guide users to re-login when account credentials expire (by @MovTery)\r\n- #1735: Refactored game launch into a task flow (by @MovTery)\r\n- #1748: Updated recorded dependency library information (by @TNTyep520)\r\n\r\n## Refactors:\r\n- #1727: Refactored download system into a unified multi-threaded download engine, consolidated mirror source settings (by @MovTery)\r\n- #1741: Refactored UI of the version list in the version management page (by @MovTery)\r\n- #1743: Refactored game version dependency library deduplication mechanism (by @MovTery)\r\n\r\n## Changes:\r\n- #1672: Updated dependency library project information (by @TNTyep520)\r\n- #1699: Disable \"Install\" button when no game version is selected during resource installation (by @CiiLu)\r\n- #1729: Changed default resource search platform to CurseForge (by @MovTery)\r\n- #1715: Lock aspect ratio when resizing joystick (by @youfeng11)\r\n- #1736: Skip integrity check entirely when not enabled (by @MovTery)\r\n- #1778: Adjusted maximum MC version supported by renderer (by @MovTery)\r\n- #1778: Early Vulkan support check to determine whether to show renderer compatibility warning (by @MovTery)\r\n\r\n## Fixes:\r\n- #1609: OpenAL-Soft: Default to OpenSL as backend (by @aaaapai)\r\n- #1676: CPU showing Unknown in F3 info on some devices (by @TNTyep520)\r\n- #1677: NG-GL4ES defensive fix for SIGSEGV caused by glGetString null pointer (by @TNTyep520)\r\n- #1686: Symbolic link creation failure spam when extracting JRE (by @MovTery)\r\n- #1687: In-game Toast display event not handled (by @MovTery)\r\n- #1707: Should not create Activity in caller's task stack when launched by other apps (by @MovTery)\r\n- #1723: Clicking desktop icon no longer reopens the main interface while game is running (by @MovTery)\r\n- #1732: Crash caused by abnormal game version sorting comparison algorithm (by @MovTery)\r\n- #1740: Fixed some description texts missing placeholder substitutions (by @MovTery)\r\n- #1742: \"Search ID\" screen navigation to project page locks download to mod folder (by @MovTery)\r\n- #1749: SmoothFont font scaling error after font selection on restart (by @MovTery)\r\n- #1758: Dialog bouncing issue when typing in dialogs (by @MovTery)\r\n- #1765: Mitigated foreground service creation failure when installing mod loaders (by @MovTery)\r\n- #1771: Fixed inability to resolve SRV records in-game (by @MovTery)\r\n- #1772: Crash triggered when CurseForge pagination cancels request on main thread (by @MovTery)\r\n- #1777: Parent directory not checked before creating .nomedia file (by @MovTery)\r\n- #1778: Fixed Turnip driver initialization and retrieval (by @MovTery)"
 }
