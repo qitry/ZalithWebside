@@ -6,31 +6,31 @@
       "name": "ZalithLauncher-2.5.1-arm64-v8a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.5.1/ZalithLauncher-2.5.1-arm64-v8a.apk",
       "size": "172.7 MB",
-      "download_count": 18547
+      "download_count": 24031
     },
     {
       "name": "ZalithLauncher-2.5.1-armeabi-v7a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.5.1/ZalithLauncher-2.5.1-armeabi-v7a.apk",
       "size": "165 MB",
-      "download_count": 901
+      "download_count": 1060
     },
     {
       "name": "ZalithLauncher-2.5.1-x86.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.5.1/ZalithLauncher-2.5.1-x86.apk",
       "size": "154 MB",
-      "download_count": 575
+      "download_count": 652
     },
     {
       "name": "ZalithLauncher-2.5.1-x86_64.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.5.1/ZalithLauncher-2.5.1-x86_64.apk",
       "size": "178.2 MB",
-      "download_count": 668
+      "download_count": 748
     },
     {
       "name": "ZalithLauncher-2.5.1.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.5.1/ZalithLauncher-2.5.1.apk",
       "size": "337.7 MB",
-      "download_count": 4845
+      "download_count": 6158
     }
   ],
   "body": "## Updates:\r\n- #0e1b12d: Integrated JSound into LWJGL (by @ShirosakiMio)\r\n\r\n## Changes:\r\n- #1797: Limit joystick resize via drag handle to the size allowed by properties (by @youfeng11)\r\n- #1799: Increased polling sample rate for joystick in controller mapping mode, and normalized offsets by actual interval (by @MovTery)\r\n\r\n## Fixes:\r\n- #1789: CurseForge downloads failing (by @MovTery)\r\n- #1793: Window size oscillation in picture-in-picture/split-screen mode causing severe screen flickering (by @MovTery)\r\n- #1793: Control layout not functioning properly when window size changes (by @MovTery)\r\n- #1794: Keep-alive foreground service startup timeout causing game process crash (by @MovTery)\r\n- #1795: Single click on hotbar slot triggering the switch key twice (by @MovTery)\r\n- #1798: ENOENT error when saving control layout due to external storage issues (by @MovTery)"
