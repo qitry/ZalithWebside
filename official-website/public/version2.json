@@ -6,31 +6,31 @@
       "name": "ZalithLauncher-2.6_hotfix-arm64-v8a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6/ZalithLauncher-2.6_hotfix-arm64-v8a.apk",
       "size": "173 MB",
-      "download_count": 3106
+      "download_count": 15288
     },
     {
       "name": "ZalithLauncher-2.6_hotfix-armeabi-v7a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6/ZalithLauncher-2.6_hotfix-armeabi-v7a.apk",
       "size": "165.2 MB",
-      "download_count": 63
+      "download_count": 298
     },
     {
       "name": "ZalithLauncher-2.6_hotfix-x86.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6/ZalithLauncher-2.6_hotfix-x86.apk",
       "size": "154.3 MB",
-      "download_count": 31
+      "download_count": 127
     },
     {
       "name": "ZalithLauncher-2.6_hotfix-x86_64.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6/ZalithLauncher-2.6_hotfix-x86_64.apk",
       "size": "178.5 MB",
-      "download_count": 33
+      "download_count": 120
     },
     {
       "name": "ZalithLauncher-2.6_hotfix.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6/ZalithLauncher-2.6_hotfix.apk",
       "size": "338 MB",
-      "download_count": 637
+      "download_count": 2803
     }
   ],
   "body": "## Hotfix:\r\n- Main interface card width stalling on ultra-wide windows (by @MovTery)\r\n- Touch coordinate offset after closing page fullscreen (by @MovTery)\r\n\r\n## Updates:\r\n- #1891: Updated mod data (by @MovTery)\r\n- #1892: Use relevance sorting when searching translation keywords in Chinese (by @MovTery)\r\n- #1897: Added resource favorites feature to the download screen (by @MovTery)\r\n- #1906: Added game argument configuration options (by @MovTery)\r\n- #1925: Updated Vulkan detection (26.4-snapshot-1) (by @MovTery)\r\n- #1926: Removed custom home page, added card-based main interface system (by @MovTery)\r\n- #1934: Main interface action menu bar supports long-press drag to switch sides (by @MovTery)\r\n\r\n## Refactors:\r\n- #1911: Version encapsulates game directory, version chain paths now provided by Version instances (by @MovTery)\r\n- #1929: Refactored downloader engine, referencing HMCL FetchTask (by @MovTery)\r\n\r\n## Changes:\r\n- #1885: Adjusted Java runtime selection dialog style (by @youfeng11)\r\n- #1889: Expand compatible versions by default in the version list when downloading mods (by @youfeng11)\r\n- #1897: Resource platform badges now distinguished by platform brand colors (by @MovTery)\r\n\r\n## Fixes:\r\n- #1884: Unified single initialization of LWJGL natives paths, auto re-extract when self-check detects missing files before launch (by @MovTery)\r\n- #1890: Added SDL dlsym layer proxy, destroy gating covers reused windows (by @MovTery)\r\n- #1898: Abnormally long author names displayed incorrectly on the download screen (by @MovTery)\r\n- #1905: Byte-by-byte boxing during mod fingerprint scanning causes GC pressure and slow loading when loading installed mods (by @MovTery)\r\n- #1906: Misaligned game arguments and JVM arguments when importing/exporting MCBBS modpacks (by @MovTery)\r\n- #1923: Completed paired sending of key and character events, fixing Cleanroom letter keys and chat input not working (by @MovTery)\r\n- #1920: Some systems scale app windows, causing decorView size to differ from physical display size and leading to multi-touch coordinate offset (by @Leowly)\r\n- #1932: Fixed physical mouse movement being dispatched as key events after switching system input method (by @MovTery)"
