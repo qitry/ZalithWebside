@@ -1,37 +1,37 @@
 {
-  "latest_version": "2.6",
-  "release_date": "2026-09-24T14:28:55Z",
+  "latest_version": "2.6.1",
+  "release_date": "2026-09-28T07:50:16Z",
   "assets": [
     {
-      "name": "ZalithLauncher-2.6_hotfix-arm64-v8a.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6/ZalithLauncher-2.6_hotfix-arm64-v8a.apk",
-      "size": "173 MB",
-      "download_count": 32599
+      "name": "ZalithLauncher-2.6.1-arm64-v8a.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6.1/ZalithLauncher-2.6.1-arm64-v8a.apk",
+      "size": "173.1 MB",
+      "download_count": 7118
     },
     {
-      "name": "ZalithLauncher-2.6_hotfix-armeabi-v7a.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6/ZalithLauncher-2.6_hotfix-armeabi-v7a.apk",
-      "size": "165.2 MB",
-      "download_count": 749
+      "name": "ZalithLauncher-2.6.1-armeabi-v7a.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6.1/ZalithLauncher-2.6.1-armeabi-v7a.apk",
+      "size": "165.4 MB",
+      "download_count": 158
     },
     {
-      "name": "ZalithLauncher-2.6_hotfix-x86.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6/ZalithLauncher-2.6_hotfix-x86.apk",
-      "size": "154.3 MB",
-      "download_count": 338
+      "name": "ZalithLauncher-2.6.1-x86.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6.1/ZalithLauncher-2.6.1-x86.apk",
+      "size": "154.4 MB",
+      "download_count": 97
     },
     {
-      "name": "ZalithLauncher-2.6_hotfix-x86_64.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6/ZalithLauncher-2.6_hotfix-x86_64.apk",
-      "size": "178.5 MB",
-      "download_count": 368
+      "name": "ZalithLauncher-2.6.1-x86_64.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6.1/ZalithLauncher-2.6.1-x86_64.apk",
+      "size": "178.6 MB",
+      "download_count": 103
     },
     {
-      "name": "ZalithLauncher-2.6_hotfix.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6/ZalithLauncher-2.6_hotfix.apk",
-      "size": "338 MB",
-      "download_count": 6847
+      "name": "ZalithLauncher-2.6.1.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6.1/ZalithLauncher-2.6.1.apk",
+      "size": "338.1 MB",
+      "download_count": 1624
     }
   ],
-  "body": "## Hotfix:\r\n- Main interface card width stalling on ultra-wide windows (by @MovTery)\r\n- Touch coordinate offset after closing page fullscreen (by @MovTery)\r\n\r\n## Updates:\r\n- #1891: Updated mod data (by @MovTery)\r\n- #1892: Use relevance sorting when searching translation keywords in Chinese (by @MovTery)\r\n- #1897: Added resource favorites feature to the download screen (by @MovTery)\r\n- #1906: Added game argument configuration options (by @MovTery)\r\n- #1925: Updated Vulkan detection (26.4-snapshot-1) (by @MovTery)\r\n- #1926: Removed custom home page, added card-based main interface system (by @MovTery)\r\n- #1934: Main interface action menu bar supports long-press drag to switch sides (by @MovTery)\r\n\r\n## Refactors:\r\n- #1911: Version encapsulates game directory, version chain paths now provided by Version instances (by @MovTery)\r\n- #1929: Refactored downloader engine, referencing HMCL FetchTask (by @MovTery)\r\n\r\n## Changes:\r\n- #1885: Adjusted Java runtime selection dialog style (by @youfeng11)\r\n- #1889: Expand compatible versions by default in the version list when downloading mods (by @youfeng11)\r\n- #1897: Resource platform badges now distinguished by platform brand colors (by @MovTery)\r\n\r\n## Fixes:\r\n- #1884: Unified single initialization of LWJGL natives paths, auto re-extract when self-check detects missing files before launch (by @MovTery)\r\n- #1890: Added SDL dlsym layer proxy, destroy gating covers reused windows (by @MovTery)\r\n- #1898: Abnormally long author names displayed incorrectly on the download screen (by @MovTery)\r\n- #1905: Byte-by-byte boxing during mod fingerprint scanning causes GC pressure and slow loading when loading installed mods (by @MovTery)\r\n- #1906: Misaligned game arguments and JVM arguments when importing/exporting MCBBS modpacks (by @MovTery)\r\n- #1923: Completed paired sending of key and character events, fixing Cleanroom letter keys and chat input not working (by @MovTery)\r\n- #1920: Some systems scale app windows, causing decorView size to differ from physical display size and leading to multi-touch coordinate offset (by @Leowly)\r\n- #1932: Fixed physical mouse movement being dispatched as key events after switching system input method (by @MovTery)"
+  "body": "## Updates:\r\n- #1950: Added onboarding guide to launcher main interface & control layout editor (by @MovTery)\r\n- #1956: Refactored existing easter egg effect layer, added easter egg effects for multiple holidays (by @MovTery)\r\n- #1957: Added compatibility with lwjgl3ify & use MioLauncherWrapper (by @MovTery)\r\n- #1963: Card grid supports free placement, allowing vertical gaps between cards (by @MovTery)\r\n\r\n## Refactors:\r\n- #1972: Optimized main interface card repositioning logic, card drag displacement changed to chain-style door-opening semantics (by @MovTery)\r\n- #1974: Refactored tablet main interface layout (by @MovTery)\r\n\r\n## Changes:\r\n- #1973: Adjusted launcher update dialog style (by @MovTery)\r\n\r\n## Fixes:\r\n- #1964: SDL message box message mistakenly set as title causing incomplete error info display (by @MovTery)\r\n- #1971: Fixed Cleanroom input method input being misidentified as key presses (by @MovTery)"
 }
