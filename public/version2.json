@@ -6,31 +6,31 @@
       "name": "ZalithLauncher-2.6.1-arm64-v8a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6.1/ZalithLauncher-2.6.1-arm64-v8a.apk",
       "size": "173.1 MB",
-      "download_count": 29832
+      "download_count": 37363
     },
     {
       "name": "ZalithLauncher-2.6.1-armeabi-v7a.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6.1/ZalithLauncher-2.6.1-armeabi-v7a.apk",
       "size": "165.4 MB",
-      "download_count": 711
+      "download_count": 930
     },
     {
       "name": "ZalithLauncher-2.6.1-x86.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6.1/ZalithLauncher-2.6.1-x86.apk",
       "size": "154.4 MB",
-      "download_count": 370
+      "download_count": 460
     },
     {
       "name": "ZalithLauncher-2.6.1-x86_64.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6.1/ZalithLauncher-2.6.1-x86_64.apk",
       "size": "178.6 MB",
-      "download_count": 387
+      "download_count": 480
     },
     {
       "name": "ZalithLauncher-2.6.1.apk",
       "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6.1/ZalithLauncher-2.6.1.apk",
       "size": "338.1 MB",
-      "download_count": 7722
+      "download_count": 9921
     }
   ],
   "body": "## Updates:\r\n- #1950: Added onboarding guide to launcher main interface & control layout editor (by @MovTery)\r\n- #1956: Refactored existing easter egg effect layer, added easter egg effects for multiple holidays (by @MovTery)\r\n- #1957: Added compatibility with lwjgl3ify & use MioLauncherWrapper (by @MovTery)\r\n- #1963: Card grid supports free placement, allowing vertical gaps between cards (by @MovTery)\r\n\r\n## Refactors:\r\n- #1972: Optimized main interface card repositioning logic, card drag displacement changed to chain-style door-opening semantics (by @MovTery)\r\n- #1974: Refactored tablet main interface layout (by @MovTery)\r\n\r\n## Changes:\r\n- #1973: Adjusted launcher update dialog style (by @MovTery)\r\n\r\n## Fixes:\r\n- #1964: SDL message box message mistakenly set as title causing incomplete error info display (by @MovTery)\r\n- #1971: Fixed Cleanroom input method input being misidentified as key presses (by @MovTery)"
