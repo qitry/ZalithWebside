@@ -1,37 +1,37 @@
 {
-  "latest_version": "2.6.1",
-  "release_date": "2026-09-28T07:50:16Z",
+  "latest_version": "2.7",
+  "release_date": "2026-10-11T04:35:02Z",
   "assets": [
     {
-      "name": "ZalithLauncher-2.6.1-arm64-v8a.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6.1/ZalithLauncher-2.6.1-arm64-v8a.apk",
-      "size": "173.1 MB",
-      "download_count": 87877
+      "name": "ZalithLauncher-2.7-arm64-v8a.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.7/ZalithLauncher-2.7-arm64-v8a.apk",
+      "size": "172.4 MB",
+      "download_count": 12128
     },
     {
-      "name": "ZalithLauncher-2.6.1-armeabi-v7a.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6.1/ZalithLauncher-2.6.1-armeabi-v7a.apk",
-      "size": "165.4 MB",
-      "download_count": 2730
+      "name": "ZalithLauncher-2.7-armeabi-v7a.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.7/ZalithLauncher-2.7-armeabi-v7a.apk",
+      "size": "164.7 MB",
+      "download_count": 244
     },
     {
-      "name": "ZalithLauncher-2.6.1-x86.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6.1/ZalithLauncher-2.6.1-x86.apk",
-      "size": "154.4 MB",
-      "download_count": 1234
+      "name": "ZalithLauncher-2.7-x86.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.7/ZalithLauncher-2.7-x86.apk",
+      "size": "153.8 MB",
+      "download_count": 97
     },
     {
-      "name": "ZalithLauncher-2.6.1-x86_64.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6.1/ZalithLauncher-2.6.1-x86_64.apk",
-      "size": "178.6 MB",
-      "download_count": 1266
+      "name": "ZalithLauncher-2.7-x86_64.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.7/ZalithLauncher-2.7-x86_64.apk",
+      "size": "178 MB",
+      "download_count": 101
     },
     {
-      "name": "ZalithLauncher-2.6.1.apk",
-      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.6.1/ZalithLauncher-2.6.1.apk",
-      "size": "338.1 MB",
-      "download_count": 26609
+      "name": "ZalithLauncher-2.7.apk",
+      "browser_download_url": "https://github.com/ZalithLauncher/ZalithLauncher2/releases/download/2.7/ZalithLauncher-2.7.apk",
+      "size": "337.5 MB",
+      "download_count": 2191
     }
   ],
-  "body": "## Updates:\r\n- #1950: Added onboarding guide to launcher main interface & control layout editor (by @MovTery)\r\n- #1956: Refactored existing easter egg effect layer, added easter egg effects for multiple holidays (by @MovTery)\r\n- #1957: Added compatibility with lwjgl3ify & use MioLauncherWrapper (by @MovTery)\r\n- #1963: Card grid supports free placement, allowing vertical gaps between cards (by @MovTery)\r\n\r\n## Refactors:\r\n- #1972: Optimized main interface card repositioning logic, card drag displacement changed to chain-style door-opening semantics (by @MovTery)\r\n- #1974: Refactored tablet main interface layout (by @MovTery)\r\n\r\n## Changes:\r\n- #1973: Adjusted launcher update dialog style (by @MovTery)\r\n\r\n## Fixes:\r\n- #1964: SDL message box message mistakenly set as title causing incomplete error info display (by @MovTery)\r\n- #1971: Fixed Cleanroom input method input being misidentified as key presses (by @MovTery)"
+  "body": "## Updates:\r\n- #1991: Improved log display for mod loader installation (by @MovTery)\r\n- #1990: Removed update loader/install loader and overwrite installation features & added modify version feature (by @MovTery)\r\n- #1994: Added in-game frame rate chart display mode (by @MovTery)\r\n- #2027: Main interface now supports adding server cards & removed offline account restrictions (by @MovTery)\r\n- #2045: Game requests the highest refresh rate tier at the same resolution, removing the 60fps lock on some devices (by @MovTery)\r\n\r\n## Refactors:\r\n- #1984: Rewrote background glass blur using Modifier nodes and removed Haze dependency (by @MovTery)\r\n- #1990: Refactored OptiFine installation method, added support for combined installation with Forge (by @MovTery)\r\n- #2036: Corrected semantics of renderer configuration titles, properly display plugin configuration titles (by @youfeng11, @MovTery)\r\n\r\n## Changes:\r\n- #1985: Adjusted version card content layout (by @MovTery)\r\n- #2035: Adjusted styling of disabled mods in the mod management list (by @MovTery)\r\n\r\n## Fixes:\r\n- #1984: GIF background stops playing when switching pages (by @MovTery)\r\n- #1998: Fixed game input issues with control layout keys and input method character events (by @MovTery)\r\n- #2005: Card toolbar promoted to an independent floating layer, fixing buttons not being clickable (by @MovTery)\r\n- #1997: Fixed touchpad treating absolute surface coordinates as displacement, causing erratic camera movement in-game (by @MovTery)\r\n- #2001: Modpack download failures no longer falsely reported as successful, restored batch retry for failed files (by @MovTery)\r\n- #2010: Added missing LWJGL glfwGetWindowPos function (by @MovTery)\r\n- #2024: Complete component libraries when installing OptiFine, fixing launch failure due to missing launchwrapper (by @MovTery)\r\n- #2025: Possible crash when disabling SDL input method (by @MovTery)\r\n- #2026: Downloader failure retry rolled back duplicate byte statistics, fixing progress exceeding task completion (by @MovTery)\r\n- #2028: Crash caused by initial window size refresh on background thread during game launch (by @MovTery)\r\n- #2029: Control layout quick text input not working on SDL side (by @MovTery)\r\n- #2038: Version management ViewModels now follow the version object lifecycle (by @MovTery)\r\n- #2041: Fixed TouchController proxy pointer not being released (by @MovTery)"
 }
